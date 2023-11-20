@@ -26,14 +26,8 @@ struct CoinRowView: View {
 }
 
 #Preview {
-    Group {
-        CoinRowView(coin: CoinModel.generateMock(), showHoldingsColumn: true)
-            .previewLayout(.sizeThatFits)
-        
-        CoinRowView(coin: CoinModel.generateMock(), showHoldingsColumn: true)
-            .previewLayout(.sizeThatFits)
-           // .preferredColorScheme(.dark)
-    }
+    CoinRowView(coin: CoinModel.generateMock(), showHoldingsColumn: true)
+        .previewLayout(.sizeThatFits)
 }
 
 extension CoinRowView {

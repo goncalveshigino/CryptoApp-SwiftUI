@@ -13,21 +13,22 @@ URL: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market
  */
 
 struct CoinModel: Identifiable,Codable {
-    let id, symbol, name: String
-    let image: String
-    let currentPrice: Double
-    let marketCap, marketCapRank, fullyDilutedValuation: Double?
-    let totalVolume, high24H, low24H: Double?
-    let priceChange24H, priceChangePercentage24H, marketCapChange24H, marketCapChangePercentage24H: Double
-    let circulatingSupply, totalSupply, maxSupply, ath: Int
-    let athChangePercentage: Double?
-    let athDate: String?
-    let atl, atlChangePercentage: Double?
-    let atlDate: String?
-    let lastUpdated: String?
-    let sparklineIn7D: SparklineIn7D?
-    let priceChangePercentage24HInCurrency: Double?
-    let currentHoldings: Double?
+        let id, symbol, name: String
+        let image: String
+        let currentPrice: Double
+        let marketCap, marketCapRank, fullyDilutedValuation: Double?
+        let totalVolume, high24H, low24H: Double?
+        let priceChange24H, priceChangePercentage24H: Double
+        let marketCapChange24H, marketCapChangePercentage24H: Double
+        let circulatingSupply, totalSupply, maxSupply, ath: Double?
+        let athChangePercentage: Double?
+        let athDate: String?
+        let atl, atlChangePercentage: Double?
+        let atlDate: String?
+        let lastUpdated: String?
+        let sparklineIn7D: SparklineIn7D?
+        let priceChangePercentage24HInCurrency: Double?
+        let currentHoldings: Double?
 
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, image
@@ -39,7 +40,7 @@ struct CoinModel: Identifiable,Codable {
         case high24H = "high_24h"
         case low24H = "low_24h"
         case priceChange24H = "price_change_24h"
-        case priceChangePercentage24H = "price_change_percentag_24h"
+        case priceChangePercentage24H = "price_change_percentage_24h"
         case marketCapChange24H = "market_cap_change_24h"
         case marketCapChangePercentage24H = "market_cap_change_percentage_24h"
         case circulatingSupply = "circulating_supply"
@@ -52,9 +53,9 @@ struct CoinModel: Identifiable,Codable {
         case atlChangePercentage = "atl_change_percentage"
         case atlDate = "atl_date"
         case lastUpdated = "last_updated"
-        case sparklineIn7D = "sparkline_in7d"
+        case sparklineIn7D = "sparkline_in_7d"
         case priceChangePercentage24HInCurrency = "price_change_percentage_24h_in_currency"
-        case currentHoldings = "current_holdings"
+        case currentHoldings
     }
     
     func updateHoldings(amount: Double) -> CoinModel{
@@ -62,7 +63,7 @@ struct CoinModel: Identifiable,Codable {
     }
     
     var currentHoldingsValue: Double {
-        return (currentHoldings ?? 0) * currentPrice
+        return (currentHoldings ?? 0) * Double(currentPrice)
     }
     
     var rank: Int {
@@ -74,8 +75,3 @@ struct CoinModel: Identifiable,Codable {
 struct SparklineIn7D: Codable {
     let price: [Double]?
 }
-
-
-
-
-
