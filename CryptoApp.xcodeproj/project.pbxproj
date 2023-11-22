@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D65620AB2B0DE11D00ED6C18 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65620AA2B0DE11D00ED6C18 /* NetworkingManager.swift */; };
 		D66CD36A2B0A96450078E8DE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66CD3692B0A96450078E8DE /* HomeViewModel.swift */; };
 		D66CD36D2B0A9E080078E8DE /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66CD36C2B0A9E080078E8DE /* CoinDataService.swift */; };
 		D6F6CD912B0770A500E3B54A /* CryptoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6CD902B0770A500E3B54A /* CryptoAppApp.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D65620AA2B0DE11D00ED6C18 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		D66CD3692B0A96450078E8DE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D66CD36C2B0A9E080078E8DE /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		D6F6CD8D2B0770A500E3B54A /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D65620A92B0DE0C300ED6C18 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D65620AA2B0DE11D00ED6C18 /* NetworkingManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		D66CD36B2B0A9DC40078E8DE /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		D6F6CD8F2B0770A500E3B54A /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
+				D65620A92B0DE0C300ED6C18 /* Utilities */,
 				D6F6CD902B0770A500E3B54A /* CryptoAppApp.swift */,
 				D6F6CDA02B07930200E3B54A /* Extensions */,
 				D66CD36B2B0A9DC40078E8DE /* Services */,
@@ -247,6 +258,7 @@
 				D6F6CD912B0770A500E3B54A /* CryptoAppApp.swift in Sources */,
 				D6F6CDAC2B07999A00E3B54A /* CircleButtonView.swift in Sources */,
 				D6F6CDA22B07931700E3B54A /* Color.swift in Sources */,
+				D65620AB2B0DE11D00ED6C18 /* NetworkingManager.swift in Sources */,
 				D6F6CDAE2B079F2B00E3B54A /* CircleButtonAnimationView.swift in Sources */,
 				D6F6CDB52B07C23C00E3B54A /* PreviewProvider.swift in Sources */,
 				D6F6CDB72B07D09200E3B54A /* Double.swift in Sources */,
