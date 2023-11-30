@@ -30,6 +30,8 @@ struct CoinRowView: View {
         .previewLayout(.sizeThatFits)
 }
 
+//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
+
 extension CoinRowView {
     
     private var leftColumn: some View {
@@ -39,7 +41,7 @@ extension CoinRowView {
                 .foregroundStyle(Color.theme.secondaryText)
                 .frame(minWidth: 30)
             
-            Circle()
+           CoinImage(coin: coin)
                 .frame(width: 30, height: 30)
             Text(coin.symbol.uppercased())
                 .font(.headline)

@@ -13,6 +13,7 @@ URL: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market
  */
 
 struct CoinModel: Identifiable,Codable {
+    
         let id, symbol, name: String
         let image: String
         let currentPrice: Double
