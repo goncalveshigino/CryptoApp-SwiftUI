@@ -10,6 +10,7 @@ import Combine
 
 class NetworkingManager {
     
+    
     enum NetworkingError: LocalizedError {
         case badURLResponse(url: URL)
         case unknown
@@ -21,6 +22,7 @@ class NetworkingManager {
             }
         }
     }
+    
     
     static func download(url: URL) -> AnyPublisher<Data, Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
