@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct CoinImage: View {
+struct CoinImageView: View {
     
     @StateObject var vm: CoinImageViewModel
     
@@ -33,7 +33,7 @@ struct CoinImage: View {
 }
 
 #Preview {
-    CoinImage(coin: .generateMock())
+    CoinImageView(coin: .generateMock())
         .padding()
         .previewLayout(.sizeThatFits)
 }
