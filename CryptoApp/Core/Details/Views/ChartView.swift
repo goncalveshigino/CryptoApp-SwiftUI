@@ -19,6 +19,7 @@ struct ChartView: View {
     @State private var percentage: CGFloat = 0
     
     init(coin: CoinModel) {
+        
         data = coin.sparklineIn7D?.price ?? []
         maxY = data.max() ?? 0
         minY = data.min() ?? 0
