@@ -53,7 +53,9 @@ class DeveloerPreview {
         atlChangePercentage: -10.0,
         atlDate: "2021-01-01",
         lastUpdated: "2023-11-17",
-        sparklineIn7D: SparklineIn7D(price: [50000, 55000, 60000, 58000, 62000]),
+        sparklineIn7D: SparklineIn7D(price: [
+            54019.3453735353737, 55620.657575657575, 61100.5473635373, 58000, 62000
+        ]),
         priceChangePercentage24HInCurrency: 1.2,
         currentHoldings: 10.0
     )

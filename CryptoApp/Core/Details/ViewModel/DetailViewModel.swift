@@ -12,6 +12,9 @@ class DetailViewModel: ObservableObject {
     
     @Published var overviewStatistics: [StatisticModel] = []
     @Published var additionalStatistics: [StatisticModel] = []
+    @Published var coinDescription: String? = nil
+    @Published var websiteURL: String? = nil
+    @Published var redditURL: String? = nil
     
     @Published var  coin: CoinModel
     private let coinDetailService: CoinDetailDataService
@@ -32,6 +35,14 @@ class DetailViewModel: ObservableObject {
             .sink { [weak self] (returnedArrays) in
                 self?.overviewStatistics = returnedArrays.overview
                 self?.additionalStatistics = returnedArrays.additional
+            }
+            .store(in: &cancellables)
+        
+        coinDetailService.$coinDetails
+            .sink { [weak self] (returnedCoinDetails) in
+                self?.coinDescription = returnedCoinDetails?.readableDescription
+                self?.websiteURL = returnedCoinDetails?.links?.homepage?.first
+                self?.redditURL = returnedCoinDetails?.links?.subredditURL
             }
             .store(in: &cancellables)
     }
@@ -74,12 +85,12 @@ class DetailViewModel: ObservableObject {
         let low = coinModel.low24H?.asCurrentWith2Decimals() ?? "n/a"
         let lowStat = StatisticModel(title: "24h Low", value: low)
         
-        let priceChange = coinModel.priceChange24H.asCurrentWith2Decimals() ?? "n/a"
+       let priceChange = coinModel.priceChange24H.asCurrentWith2Decimals() 
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceChangeStat = StatisticModel(title: "24h Price Change", value: priceChange, percentageChange: pricePercentChange)
         
         
-        let marketCapChange = "$" + (coinModel.marketCapChange24H.formattedWithAbbreviations() ?? "")
+       let marketCapChange = "$" + (coinModel.marketCapChange24H.formattedWithAbbreviations() )
         let markCapPercentChange2 = coinModel.marketCapChangePercentage24H
         let marketCapChangeStat = StatisticModel(title: "24h Market Cap Change", value: marketCapChange, percentageChange: markCapPercentChange2)
         
