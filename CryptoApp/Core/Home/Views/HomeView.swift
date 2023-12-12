@@ -37,9 +37,17 @@ struct HomeView: View {
                 if !showPortifolio {
                     allCoinsList
                        .transition(.move(edge: .leading))
-                } else {
-                    portifolioCoinsList
-                        .transition(.move(edge: .trailing))
+                }
+                if showPortifolio {
+                    ZStack(alignment: .top) {
+                        if vm.portifolioCoins.isEmpty && vm.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portifolioCoinsList
+                                
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
            
                 
@@ -133,6 +141,15 @@ extension HomeView {
             }
         }
         .listStyle(PlainListStyle())
+    }
+    
+    private var portfolioEmptyText: some View {
+        Text("You haven't added any coins to your portfolio yet. Click the + button to get started! 🫨")
+            .font(.callout)
+            .foregroundStyle(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private var columnTitles: some View {
