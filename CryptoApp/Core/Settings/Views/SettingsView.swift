@@ -15,10 +15,19 @@ struct SettingsView: View {
     let coingeckoURL = URL(string: "https://coingecko.com")!
     
     var body: some View {
-        List {
-            swiftfulthinkingsSection
-            coinGeckoSection
-            applicationSection
+        ZStack {
+            
+            Color.theme.background
+                .ignoresSafeArea()
+            
+            List {
+                swiftfulthinkingsSection
+                    .listRowBackground(Color.theme.background.opacity(0.5))
+                coinGeckoSection
+                    .listRowBackground(Color.theme.background.opacity(0.5))
+                applicationSection
+                    .listRowBackground(Color.theme.background.opacity(0.5))
+            }
         }
         .font(.headline)
         .accentColor(.blue)

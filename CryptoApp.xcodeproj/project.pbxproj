@@ -250,14 +250,14 @@
 		D6F6CD8F2B0770A500E3B54A /* CryptoApp */ = {
 			isa = PBXGroup;
 			children = (
-				D6A286E32B2834E00008B0E1 /* Info.plist */,
-				D65620A92B0DE0C300ED6C18 /* Utilities */,
 				D6F6CD902B0770A500E3B54A /* CryptoAppApp.swift */,
+				D65620A92B0DE0C300ED6C18 /* Utilities */,
 				D6F6CDA02B07930200E3B54A /* Extensions */,
 				D66CD36B2B0A9DC40078E8DE /* Services */,
 				D6F6CDAF2B07B21100E3B54A /* Models */,
 				D6F6CDA32B07977B00E3B54A /* Core */,
 				D6F6CD942B0770A700E3B54A /* Assets.xcassets */,
+				D6A286E32B2834E00008B0E1 /* Info.plist */,
 				D6F6CD962B0770A700E3B54A /* Preview Content */,
 			);
 			path = CryptoApp;
@@ -288,11 +288,11 @@
 		D6F6CDA32B07977B00E3B54A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D6F6CDA92B07997400E3B54A /* Components */,
 				D6A286E42B2835830008B0E1 /* Launch */,
 				D6F6CDA42B07978500E3B54A /* Home */,
-				D6F6CDA92B07997400E3B54A /* Components */,
-				D68BC5A22B233355003C3D76 /* Settings */,
 				D692A4F32B1DC2D400FC5AEC /* Details */,
+				D68BC5A22B233355003C3D76 /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
