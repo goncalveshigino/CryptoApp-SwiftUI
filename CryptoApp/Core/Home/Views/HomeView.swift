@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortifolio: Bool = false
     @State private var showPortifolioView: Bool = false
-    
+    @State private var showSettingsView: Bool = false
     @State private var selectedCoins: CoinModel? = nil
     @State private var showDetailsView: Bool = false
     
@@ -37,14 +37,25 @@ struct HomeView: View {
                 if !showPortifolio {
                     allCoinsList
                        .transition(.move(edge: .leading))
-                } else {
-                    portifolioCoinsList
-                        .transition(.move(edge: .trailing))
+                }
+                if showPortifolio {
+                    ZStack(alignment: .top) {
+                        if vm.portifolioCoins.isEmpty && vm.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portifolioCoinsList
+                                
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
            
                 
                 Spacer(minLength: 0)
             }
+            .sheet(isPresented: $showSettingsView, content: {
+                SettingsView()
+            })
         }
         .background(
             NavigationLink(
@@ -74,6 +85,8 @@ extension HomeView {
                     .onTapGesture {
                         if showPortifolio {
                             showPortifolioView.toggle()
+                        } else {
+                            showSettingsView.toggle()
                         }
                     }
                     .background(
@@ -128,6 +141,15 @@ extension HomeView {
             }
         }
         .listStyle(PlainListStyle())
+    }
+    
+    private var portfolioEmptyText: some View {
+        Text("You haven't added any coins to your portfolio yet. Click the + button to get started! 🫨")
+            .font(.callout)
+            .foregroundStyle(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
     
     private var columnTitles: some View {
